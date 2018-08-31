@@ -4,6 +4,11 @@
 {% if chrony_pool %}
 pool {{ chrony_pool }}
 {% endif %}
+{% if chrony_pools %}
+{% for chrony_pool in chrony_pools %}
+pool {{ chrony_pool }}
+{% endfor %}
+{% endif %}
 
 {% if chrony_server %}
 server {{ chrony_server }}
@@ -58,4 +63,3 @@ hwclockfile /etc/adjtime
 # real-time clock. Note that it can’t be used along with the 'rtcfile' directive.
 
 rtcsync
-
